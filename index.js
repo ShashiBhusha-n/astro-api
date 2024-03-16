@@ -7,6 +7,7 @@ const app = express();
 const FormRouter = require("./router/formRouter");
 dotenv.config();
 const PORT = 3030;
+const serverless = require("serverless-http");
 
 app.use(express.json());
 app.use(cors());
@@ -35,3 +36,6 @@ app.listen(PORT, () => {
   connect();
   console.log(`Server running at ${PORT} `);
 });
+
+
+export const handler = serverless(api);
